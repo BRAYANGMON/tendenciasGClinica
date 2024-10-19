@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../static/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <title>
+    Registrar Licencias
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- Nucleo Icons -->
+  <link href="../static/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../static/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link href="../static/css/font-awesome.css" rel="stylesheet" />
+  <link href="../static/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="../static/css/argon-design-system.css?v=1.2.2" rel="stylesheet" />
+</head>
+
+<body class="profile-page">
+  <!-- Navbar -->
+  <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light py-2">
+    <div class="container">
+      <div class="navbar-collapse collapse" id="navbar_global">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+            </div>
+            <div class="col-6 collapse-close">
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item ">
+            <a href="/registrarEmpleado/{{id}}" class="nav-link"  role="button">
+              <i class="ni ni-ui-04 d-lg-none"></i>
+              <span class="nav-link-inner--text">Registrar Empleado</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/buscaEmpleado/{{id}}" class="nav-link"  role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Actualizar Empleado</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/inactivarEmpleado/{{id}}" class="nav-link"  role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Inactivar Empleado</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="/muestraEmpleado/{{id}}" class="nav-link"  role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Buscar Empleados</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="/buscaEmpleadoN/{{id}}" class="nav-link" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Licencias</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="/asistencias/{{id}}" class="nav-link" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Asistencias</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="/login/{{id}}" class="nav-link" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text btn-primary p-1">X</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <section class="section-profile-cover section-shaped my-0">
+      <!-- Circles background -->
+      <img class="bg-image"  src="../static/img/pages/mohamed.jpg" style="width: 100%;">
+      <!-- SVG separator -->
+    </section>
+    <section class="section bg-secondary">
+      <div class="container">
+        <div class="card card-profile shadow mt--300">
+          <div class="px-4">
+            <div class="text-center mt-3">
+              <h3>REGISTRAR LICENCIA</h3>
+		          <form class="row" role="form" method="get" action="/licenciaEmpleado1/{{id}}">
+                {% for persona in personas %}
+                <div class="col-6">
+                  <div class='mb-4 text-left ml-10'>
+                    <label for="cedula" class='block text-gray-900 text-sm font-bold mb-2 ml-50'>Cedula del Empleado </label>                   
+                    <input
+                      class='form-control'
+                      value={{persona.cedula}}
+                      name="cedula"
+                      readonly
+                    />
+                  </div>
+                </div>  
+                <div class="col-6">  
+                  <div class='mb-2 text-left'>
+                    <label for="nombre" class='block text-gray-900 text-sm font-bold mb-2'>Nombre completo del Empleado </label>
+                    <input
+                      class='form-control'
+                      value={{persona.nombre}}
+                      name="nombre"
+                      readonly
+                    />
+                  </div>
+                </div>  
+                <div class="col-6">  
+                  <div class='mb-2 text-left'>
+                    <label for="nombre" class='block text-gray-900 text-sm font-bold mb-2'>Tipo de Novedad</label>
+                    <input
+                      class='form-control'
+                      id="novedad"
+                      type="text"
+                      placeholder='Novedad'
+                      name="novedad"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-6">  
+                  <div class='mb-2 text-left'>
+                    <label for="nombre" class='block text-gray-900 text-sm font-bold mb-2'>Tiempo duración de la Novedad</label>
+                    <input
+                      class='form-control'
+                      id="tiempo"
+                      type="number"
+                      min="0"
+                      placeholder='# dias'
+                      name="tiempo"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-12">  
+                  <div class='mb-2 text-left'>
+                    <label for="observa" class='block text-gray-900 text-sm font-bold mb-2'>Observaciones</label>
+                    <textarea
+                      class='form-control'
+                      id="observa"
+                      placeholder='Observaciones'
+                      name="observa"
+                    ></textarea>
+                  </div>
+                </div> 
+                {% endfor %}
+                <div class="col-12">
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary my-4">Grabar</button>
+                  </div>
+                </div>                                                                  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../static/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="../static/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="../static/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+  <script src="../static/js/plugins/bootstrap-switch.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../static/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <script src="../static/js/plugins/moment.min.js"></script>
+  <script src="../static/js/plugins/datetimepicker.js" type="text/javascript"></script>
+  <script src="../static/js/plugins/bootstrap-datepicker.min.js"></script>
+  <!-- Control Center for Argon UI Kit: parallax effects, scripts for the example pages etc -->
+  <script src="../static/js/argon-design-system.min.js?v=1.2.2" type="text/javascript"></script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  {% if messages %}
+    {% for m in messages %}
+      <script>
+        Swal.fire({
+          "title":"Bien hecho",
+          "icon": "success",
+          "text":"{{m}}"
+        })
+      </script>
+    {% endfor %}
+  {% endif %}  
+  <script>
+    window.TrackJS &&
+      TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "argon-design-system-pro"
+      });
+  </script>
+</body>
+</html>

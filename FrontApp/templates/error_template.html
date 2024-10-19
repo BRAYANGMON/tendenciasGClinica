@@ -1,0 +1,62 @@
+<!-- error_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        .error-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 50px auto;
+            padding: 20px;
+            width: 400px;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        h2 {
+            color: #d84824;
+        }        
+        p {
+            color: #666;
+        }
+        a {
+            color: #0f2046;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            background-color: #1b049c;
+            color: #fff;
+            padding: 10px;
+        }
+        .footer {
+            background-color: #170388;
+            color: #fff;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>CLINICA SANTA CLAUSE</h1>
+    </div>
+    <div class="error-container">
+        <h2>¡Ups! Ha ocurrido un error</h2>
+        <p>{{error_message}}</p>
+        <p><a href="/">Regresar</a></p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Corazones Sanos</p>
+    </div>
+</body>
+</html>

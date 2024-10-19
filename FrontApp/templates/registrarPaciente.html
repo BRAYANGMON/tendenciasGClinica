@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../static/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+  <title>
+    Registrar Paciente
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- Nucleo Icons -->
+  <link href="../static/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../static/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link href="../static/css/font-awesome.css" rel="stylesheet" />
+  <link href="../static/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="../static/css/argon-design-system.css?v=1.2.2" rel="stylesheet" />
+</head>
+<body class="profile-page">
+  <!-- Navbar -->
+  <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light py-2">
+    <div class="container">
+      <div class="navbar-collapse collapse" id="navbar_global">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+            </div>
+            <div class="col-6 collapse-close">
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item ">
+            <a href="/registrarPaciente/{{id}}" class="nav-link"  role="button">
+              <i class="ni ni-ui-04 d-lg-none"></i>
+              <span class="nav-link-inner--text">Registrar Paciente</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="/actualizarPaciente/{{id}}" class="nav-link" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Actualizar Paciente</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/buscaContacto/{{id}}" class="nav-link"   role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Contacto Paciente</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/buscaPoliza/{{id}}" class="nav-link"   role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Poliza Medica</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="/factura/{{id}}" class="nav-link" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text">Facturacion</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="/login/{{id}}" class="nav-link" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <span class="nav-link-inner--text btn-primary p-2">X</span>
+            </a>
+          </li>          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <section class="section-profile-cover section-shaped my-0">
+      <!-- Circles background -->
+      <img class="bg-image"  src="../static/img/pages/mohamed.jpg" style="width: 100%;">
+      <!-- SVG separator -->
+    </section>
+    <section class="section bg-secondary">
+      <div class="container">
+        <div class="card card-profile shadow mt--300">
+          <div class="px-4">
+            <div class="text-center mt-3">
+              <h3>REGISTRAR PACIENTE</h3>
+		          <form class="row" role="form" method="get" action="/registrarPaciente1/{{id}}">
+                {% csrf_token %}            
+                <div class="col-6">
+                  <div class='mb-4 text-left ml-10'>
+                    <label class='block text-gray-900 text-sm font-bold mb-2 ml-50'>Cedula del Paciente </label>
+                    <input
+                      class='form-control1 '
+                      id="cedulaPaciente"
+                      type="text"
+                      min="0"
+                      placeholder='Identificación Paciente'
+                      name="cedulaPaciente"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class='mb-4 text-left'>
+                    <label class='block text-gray-900 text-sm font-bold mb-2 '>Nombre completo del Paciente </label>
+                    <input
+                      class='form-control1'
+                      id="nombre"
+                      type="text"
+                      placeholder='Nombre completo'
+                      name="nombre"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class='mb-4 text-left'>
+                    <label class='block text-gray-900 text-sm font-bold mb-2 '>Dirección del Paciente </label>
+                    <input
+                      class='form-control1'
+                      id="direccion"
+                      type="text"
+                      placeholder='Direccion'
+                      name="direccion"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class='mb-4 text-left'>
+                    <label class='block text-gray-900 text-sm font-bold mb-2 '>Teléfono del Paciente </label>
+                    <input
+                      class='form-control1'
+                      id="telefono"
+                      type="number"
+                      placeholder='Celular/Telefono'
+                      name="telefono"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class='mb-4 text-left'>
+                    <label class='block text-gray-900 text-sm font-bold mb-2 '>Correo Electrónico del Paciente </label>
+                    <input
+                      class='form-control1'
+                      id="email"
+                      type="email"
+                      placeholder='Email'
+                      name="email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class='mb-4 text-left'>
+                    <label class='block text-gray-900 text-sm font-bold mb-2 '>Fecha Nacimiento Paciente </label>
+                    <input
+                      class='form-control1'
+                      id="fechanace"
+                      type="date"
+                      placeholder='Fecha de Nacimiento'
+                      name="fechanace"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-group input-group-alternative">
+                    <label class='block text-gray-900 text-sm font-bold mb-2 '>Género del Paciente </label>
+                    <select class="form-control1" id="genero" name="genero">
+<<<<<<< HEAD
+                      <option value="">Elegir</option>
+=======
+                      <option value="">Elegir Género</option>
+>>>>>>> feature/ADRIANA
+                      <option value="M">Femenino</option>
+                      <option value="H">Masculino</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">  
+                  <div class="col-12">
+                    <hr class="mb-2 bg-danger border-2 border-top border-danger"/>  
+                    <h3>Datos del Contacto</h3>                    
+                  </div>
+                  <div class="col-5">
+                    <div class='mb-4 text-left'>
+                      <label for="ncontacto" class='block text-gray-900 text-sm font-bold mb-2 '>Nombre del Contacto </label>
+                      <input
+                        class='form-control1'
+                        id="ncontacto"
+                        type="text"
+                        placeholder='Nombre del Contacto'
+                        name="ncontacto"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class='mb-4 text-left'>
+                      <label class='block text-gray-900 text-sm font-bold mb-2 '>Parentesco con el Paciente</label>
+                      <input
+                        class='form-control1'
+                        id="pariente"
+                        type="text"
+                        placeholder='Parentesco'
+                        name="pariente"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class='mb-4 text-left'>
+                      <label class='block text-gray-900 text-sm font-bold mb-2 '>Teléfono del Contacto </label>
+                      <input
+                        class='form-control1'
+                        id="telefonoc"
+                        type="number"
+                        placeholder='Celular/Telefono'
+                        name="telefonoc"
+                      />
+                    </div>
+                  </div>
+                </div>                                
+                <div class="col-12">
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary my-4">Grabar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../static/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="../static/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="../static/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+  <script src="../static/js/plugins/bootstrap-switch.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../static/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <script src="../static/js/plugins/moment.min.js"></script>
+  <script src="../static/js/plugins/datetimepicker.js" type="text/javascript"></script>
+  <script src="../static/js/plugins/bootstrap-datepicker.min.js"></script>
+  <!-- Control Center for Argon UI Kit: parallax effects, scripts for the example pages etc -->
+  <script src="../static/js/argon-design-system.min.js?v=1.2.2" type="text/javascript"></script>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  {% if messages %}
+    {% for m in messages %}
+      <script>
+        Swal.fire({
+          "title":"Bien hecho",
+          "icon": "success",
+          "text":"{{m}}"
+        })
+      </script>
+    {% endfor %}
+  {% endif %}
+<script>
+    window.TrackJS &&
+      TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "argon-design-system-pro"
+      });
+  </script>
+</body>
+</html>
